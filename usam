@@ -1,0 +1,74 @@
+<!DOCTYPE html> <html lang="ml"> <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial- scale=1.0">
+<title>Plan & Finance</title>
+<script src="https:// cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https:// cdnjs.cloudflare.com/ajax/libs/font- awesome/6.4.0/css/all.min.css">
+<link href="https:// fonts.googleapis.com/css2? family=Plus+Jakarta+Sans:wght@300;4 00;500;600;700;800&display=swap" rel="stylesheet">
+<style> body {
+font-family: 'Plus Jakarta Sans', sans-serif;
+
+ background-color: #fafafa; color: #171717; -webkit-tap-highlight-color:
+transparent; }
+.app-card {
+background: #ffffff;
+border: 1px solid #f0f0f0; border-radius: 1rem; box-shadow: 0 1px 2px 0 rgba(0,
+0, 0, 0.03);
+transition: all 0.15s ease;
+} .app-card:hover {
+box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+} .tab-btn {
+transition: all 0.2s ease;
+color: #737373; }
+.tab-btn.active {
+color: #171717; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0, 0,
+
+ 0, 0.08);
+font-weight: 600;
+} .no-scrollbar::-webkit-scrollbar {
+display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none;
+} </style>
+</head>
+<body class="min-h-screen pb-20 antialiased selection:bg-neutral-200">
+<!-- MPIN LOCK OVERLAY -->
+<div id="mpin-screen" class="fixed inset-0 bg-neutral-950 z-50 flex flex-col items-center justify-center p-4 text- white">
+<div class="max-w-xs w-full text- center space-y-6">
+<div class="w-16 h-16 bg- neutral-800 rounded-2xl flex items- center justify-center mx-auto text-
+
+ amber-400 shadow-xl border border- neutral-700">
+<i class="fa-solid fa-lock text-2xl"></i>
+</div> <div>
+<h2 class="text-lg font-bold tracking-tight" id="mpin-title">Enter
+MPIN</h2>
+<p class="text-xs text-
+neutral-400 mt-1" id="mpin- subtitle">സുര􏰀യ്􏰁ായി 4-അ􏰁 MPIN നൽകുക (Default: 1234)</p>
+</div>
+<!-- PIN Input Display -->
+<div class="flex justify-center gap-3 my-4">
+<div class="w-10 h-12 bg- neutral-900 border border-neutral-800 rounded-xl flex items-center justify- center text-xl font-bold" id="pin- box-1">•</div>
+<div class="w-10 h-12 bg- neutral-900 border border-neutral-800
+
+ rounded-xl flex items-center justify- center text-xl font-bold" id="pin- box-2">•</div>
+<div class="w-10 h-12 bg- neutral-900 border border-neutral-800 rounded-xl flex items-center justify- center text-xl font-bold" id="pin- box-3">•</div>
+<div class="w-10 h-12 bg- neutral-900 border border-neutral-800 rounded-xl flex items-center justify- center text-xl font-bold" id="pin- box-4">•</div>
+</div>
+<p id="mpin-error" class="text-xs text-rose-500 font-medium
+hidden">െത􏰂ായ MPIN! വീ􏰃ും 􏰄ശമി􏰁ുക.</p>
+<!-- Keypad -->
+<div class="grid grid-cols-3 gap-3 pt-2 max-w-[240px] mx-auto">
+<button onclick="pressPin('1')" class="h-12 bg-neutral-900 hover:bg-
+
+ neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">1</button>
+<button onclick="pressPin('2')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">2</button>
+<button onclick="pressPin('3')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">3</button>
+<button onclick="pressPin('4')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">4</button>
+<button onclick="pressPin('5')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">5</button>
+<button onclick="pressPin('6')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">6</button>
+<button onclick="pressPin('7')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg
+
+ active:scale-95 transition-all">7</button> <button onclick="pressPin('8')"
+class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">8</button>
+<button onclick="pressPin('9')" class="h-12 bg-neutral-900 hover:bg- neutral-800 rounded-xl font-bold text-lg active:scale-95 transition-all">9</button>
+<button onclick="triggerPinReset()" class="h-12 text-xs font-semibold text-neutral-400 hover:text-white flex items-center justify- center">Reset</button>
+<button oncl
